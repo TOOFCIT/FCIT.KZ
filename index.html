@@ -215,7 +215,24 @@
     }
 
     @media (max-width: 768px) {
-      body { background-attachment: scroll; }
+  body {
+    background-attachment: scroll;
+
+    /* ДЕЛАЕМ ФОН МЕНЬШЕ */
+    background-size: contain;
+    background-position: center top;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+}
+
       .hero { grid-template-columns: 1fr; text-align: center; }
       h1 { font-size: 36px; }
     }
