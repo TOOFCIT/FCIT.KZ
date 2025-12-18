@@ -125,7 +125,6 @@
       font-size: 14px;
     }
 
-    /* РАЗВОРАЧИВАЕМАЯ ЧАСТЬ */
     .card-more {
       max-height: 0;
       overflow: hidden;
@@ -135,7 +134,7 @@
     }
 
     .card.active .card-more {
-      max-height: 400px;
+      max-height: 500px;
       opacity: 1;
       margin-top: 15px;
     }
@@ -153,21 +152,26 @@
       font-size: 14px;
     }
 
-    /* ПЛАВАЮЩИЙ СПЕЦИАЛИСТ */
+    /* === ПЛАВАЮЩИЙ СПЕЦИАЛИСТ — МИНИМАЛЬНЫЙ ФРЕЙМ === */
     .assistant {
       position: fixed;
-      right: 0;
-      bottom: 0;
+      right: 10px;
+      bottom: 10px;
       z-index: 999;
+      pointer-events: none; /* убираем пустую зону */
     }
 
     .assistant a {
+      display: inline-block;
+      width: fit-content;
+      line-height: 0;
+      pointer-events: auto; /* кликается ТОЛЬКО картинка */
       position: relative;
-      display: block;
     }
 
     .assistant img {
       max-height: 260px;
+      display: block;
       filter:
         drop-shadow(0 0 25px rgba(139,92,246,.5))
         drop-shadow(0 0 60px rgba(34,211,238,.25));
@@ -175,7 +179,7 @@
 
     .assistant-tooltip {
       position: absolute;
-      right: 20px;
+      right: 10px;
       bottom: 100%;
       margin-bottom: 12px;
       background: rgba(15,23,42,0.95);
@@ -199,17 +203,8 @@
 
     @media (max-width: 768px) {
       body { background-attachment: scroll; }
-
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
+      .hero { grid-template-columns: 1fr; text-align: center; }
       h1 { font-size: 36px; }
-
-      .assistant img {
-        max-height: 220px;
-      }
     }
   </style>
 </head>
@@ -222,7 +217,7 @@
       <h1>IT-услуги и ремонт компьютеров<br><span>в Астане</span></h1>
       <p class="subtitle">
         Быстрое решение IT-проблем.<br>
-        Выезд и удалённая поддержка для дома и офиса.
+        Выезд и удалённая поддержка.
       </p>
       <a class="btn" href="tel:+77778898666">Позвонить</a>
     </div>
@@ -236,7 +231,14 @@
         <h3>Ремонт компьютеров</h3>
         <p>Диагностика и устранение неисправностей</p>
         <div class="card-more">
-          <!-- сюда потом добавишь текст -->
+          <ul>
+            <li>Аппаратная диагностика комплектующих</li>
+            <li>Проверка жёсткого диска и SSD</li>
+            <li>Тест оперативной памяти</li>
+            <li>Диагностика блока питания</li>
+            <li>Выявление перегрева и проблем охлаждения</li>
+            <li>Поиск программных и системных ошибок</li>
+          </ul>
         </div>
       </div>
 
@@ -288,6 +290,9 @@
   <script>
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
+        document.querySelectorAll('.card').forEach(c => {
+          if (c !== card) c.classList.remove('active');
+        });
         card.classList.toggle('active');
       });
     });
