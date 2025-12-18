@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FCIT — Fast Care IT | IT-услуги в Астане</title>
-  <meta name="description" content="FCIT — ремонт компьютеров и IT-услуги в Астане. Выезд и удалённая поддержка. Быстро. Надёжно.">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -22,13 +21,11 @@
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text);
-
-      /* === АДАПТИВНЫЙ ФОН === */
       background:
         linear-gradient(rgba(2,6,23,0.85), rgba(2,6,23,0.95)),
         radial-gradient(circle at top right, rgba(139,92,246,0.30), transparent 60%),
         radial-gradient(circle at bottom left, rgba(34,211,238,0.25), transparent 60%),
-        url("bg-tech.png") center / cover no-repeat fixed;
+        url("bg-tech.jpg.png") center / cover no-repeat fixed;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -46,16 +43,6 @@
       gap: 40px;
       align-items: center;
       min-height: 90vh;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 30px;
-      border: 1px solid var(--accent2);
-      color: var(--accent2);
-      margin-bottom: 20px;
-      font-size: 14px;
     }
 
     h1 {
@@ -76,46 +63,58 @@
       margin-bottom: 30px;
     }
 
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
     .btn {
-      padding: 14px 26px;
+      padding: 14px 28px;
       border-radius: 40px;
       font-weight: 600;
-      transition: .3s;
-    }
-
-    .btn.primary {
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       color: #020617;
+      display: inline-block;
       box-shadow: 0 0 30px rgba(139,92,246,.6);
     }
 
-    .btn.secondary {
-      border: 1px solid var(--accent);
-      color: var(--accent);
+    /* === ПЛАВАЮЩИЙ ЧЕЛОВЕК (ВМЕСТО КНОПКИ WHATSAPP) === */
+    .assistant {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      z-index: 999;
     }
 
-    .btn:hover { transform: translateY(-2px); }
-
-    /* === ЧЕЛОВЕК / КАРТИНКА === */
-    .hero-img {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .assistant a {
+      position: relative;
+      display: block;
     }
 
-    .hero-img img {
-      max-width: 100%;
-      max-height: 460px;
-      height: auto;
+    .assistant img {
+      max-height: 260px;
       filter:
-        drop-shadow(0 0 30px rgba(139,92,246,.5))
-        drop-shadow(0 0 70px rgba(34,211,238,.25));
+        drop-shadow(0 0 25px rgba(139,92,246,.5))
+        drop-shadow(0 0 60px rgba(34,211,238,.25));
+    }
+
+    .assistant-tooltip {
+      position: absolute;
+      right: 20px;
+      bottom: 100%;
+      margin-bottom: 12px;
+      background: rgba(15,23,42,0.95);
+      color: #e5e7eb;
+      padding: 10px 16px;
+      border-radius: 14px;
+      font-size: 14px;
+      white-space: nowrap;
+      box-shadow: 0 0 20px rgba(139,92,246,0.45);
+      border: 1px solid rgba(139,92,246,0.5);
+      opacity: 0;
+      transform: translateY(10px);
+      animation: pulseTooltip 6s infinite;
+    }
+
+    @keyframes pulseTooltip {
+      0%, 70% { opacity: 0; transform: translateY(10px); }
+      75%, 90% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(10px); }
     }
 
     /* SECTIONS */
@@ -136,39 +135,6 @@
       padding: 25px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.08);
-      transition: .3s;
-    }
-
-    .card:hover {
-      border-color: var(--accent2);
-      box-shadow: 0 0 25px rgba(34,211,238,.25);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* FORM */
-    .form {
-      max-width: 500px;
-      margin: 40px auto 0;
-      display: grid;
-      gap: 15px;
-    }
-
-    input {
-      padding: 14px 18px;
-      border-radius: 12px;
-      border: none;
-      background: rgba(255,255,255,0.08);
-      color: var(--text);
-      outline: none;
     }
 
     footer {
@@ -178,39 +144,16 @@
       font-size: 14px;
     }
 
-    /* WhatsApp */
-    .wa {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background: linear-gradient(135deg, #25d366, #16a34a);
-      color: #020617;
-      padding: 14px 18px;
-      border-radius: 50px;
-      font-weight: 700;
-      box-shadow: 0 0 20px rgba(37,211,102,.6);
-      z-index: 999;
-    }
-
-    /* === МОБИЛЬНАЯ АДАПТАЦИЯ === */
     @media (max-width: 768px) {
-      body {
-        background-attachment: scroll;
-        background-position: center top;
-      }
-
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
       }
 
-      h1 {
-        font-size: 36px;
-      }
+      h1 { font-size: 36px; }
 
-      .hero-img img {
-        max-height: 300px;
-        margin-top: 20px;
+      .assistant img {
+        max-height: 220px;
       }
     }
   </style>
@@ -220,41 +163,26 @@
 
   <div class="container hero">
     <div>
-      <div class="badge">FCIT — Fast Care IT</div>
       <h1>IT-услуги и ремонт компьютеров<br><span>в Астане</span></h1>
       <p class="subtitle">
         Быстрое решение IT-проблем.<br>
-        Выезд и удалённая поддержка для дома и офиса.
+        Выезд и удалённая поддержка.
       </p>
-      <div class="buttons">
-        <a class="btn primary" href="tel:+77778898666">Позвонить</a>
-        <a class="btn secondary" href="https://wa.me/77778898666">WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- === ЧЕЛОВЕК === -->
-    <div class="hero-img">
-      <img src="person.png" alt="IT специалист FCIT">
+      <a class="btn" href="tel:+77778898666">Позвонить</a>
     </div>
   </div>
 
-  <div class="container">
-    <h2>Наши услуги</h2>
-    <div class="grid">
-      <div class="card"><h3>Ремонт компьютеров</h3><p>Диагностика и устранение неисправностей</p></div>
-      <div class="card"><h3>Установка Windows</h3><p>Чистая установка и настройка</p></div>
-      <div class="card"><h3>Wi-Fi и сети</h3><p>Настройка локальных сетей</p></div>
-      <div class="card"><h3>Программы</h3><p>Установка и обновление ПО</p></div>
-      <div class="card"><h3>МФУ и принтеры</h3><p>Подключение и настройка</p></div>
-      <div class="card"><h3>IT-поддержка офисов</h3><p>Выездное и удалённое обслуживание</p></div>
-    </div>
+  <!-- ПЛАВАЮЩИЙ СПЕЦИАЛИСТ -->
+  <div class="assistant">
+    <a href="https://wa.me/77778898666">
+      <div class="assistant-tooltip">Получить консультацию</div>
+      <img src="person.png" alt="IT специалист FCIT">
+    </a>
   </div>
 
   <footer>
     © FCIT — Fast Care IT · Астана · +7 777 88 98 666
   </footer>
-
-  <a class="wa" href="https://wa.me/77778898666">WhatsApp</a>
 
 </body>
 </html>
