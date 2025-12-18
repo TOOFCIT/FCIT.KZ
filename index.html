@@ -1,90 +1,122 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>FCIT — Ремонт компьютеров и IT-услуги в Астане</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ремонт компьютеров, установка Windows, настройка Wi-Fi и IT-поддержка в Астане. Выездное и удалённое обслуживание.">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b1220;
-      color: #ffffff;
-    }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h1 {
-      font-size: 36px;
-      color: #00e5ff;
-    }
-    h2 {
-      color: #00e5ff;
-      margin-top: 40px;
-    }
-    .subtitle {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-    .button {
-      display: inline-block;
-      padding: 15px 25px;
-      background: #00e5ff;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-    ul {
-      line-height: 1.8;
-    }
-    footer {
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 1px solid #333;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>FCIT — ремонт компьютеров и IT-услуги в Астане</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ремонт компьютеров, установка Windows, настройка Wi-Fi и IT-поддержка в Астане. Выездное и удалённое обслуживание.">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #0e1b3d, #050914);
+  color: #fff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px 120px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  color: #00e5ff;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #00e5ff, #00bcd4);
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.section {
+  margin-top: 60px;
+}
+
+.section h2 {
+  color: #00e5ff;
+  margin-bottom: 20px;
+}
+
+ul {
+  line-height: 1.9;
+}
+
+.trust {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.trust div {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+footer {
+  margin-top: 80px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* Липкая кнопка WhatsApp */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: #fff;
+  padding: 16px 22px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  z-index: 999;
+}
+</style>
+
 </head>
 <body>
 
 <div class="container">
-  <h1>Ремонт компьютеров и IT-услуги</h1>
-  <div class="subtitle">
-    Астана · Быстро · Надёжно · С гарантией<br>
-    Выездное и удалённое обслуживание
+
+  <div class="hero">
+    <h1>Ремонт компьютеров и IT-услуги</h1>
+    <p>Астана · Быстро · Надёжно · С гарантией<br>
+       Выездное и удалённое обслуживание</p>
+    <a class="button" href="https://wa.me/77778898666">Написать в WhatsApp</a>
   </div>
 
-  <a class="button" href="https://wa.me/77778898666">Написать в WhatsApp</a>
-
-  <h2>Услуги</h2>
-  <ul>
-    <li>Ремонт компьютеров и ноутбуков</li>
-    <li>Установка Windows</li>
-    <li>Установка и настройка программного обеспечения</li>
-    <li>Настройка локальных сетей и Wi-Fi</li>
-    <li>Настройка интернет-оборудования</li>
-    <li>Подключение и настройка МФУ и принтеров</li>
-    <li>IT-поддержка для офисов</li>
-    <li>Выездное и удалённое обслуживание</li>
-  </ul>
-
-  <h2>Контакты</h2>
-  <p>
-    📍 Астана<br>
-    📞 +7 777 889 8666<br>
-    💬 WhatsApp / Telegram
-  </p>
-
-  <footer>
-    © FCIT, Астана
-  </footer>
-</div>
-
-</body>
-</html>
+  <div class="section">
+    <h2>Услуги</h2>
+    <ul>
+      <li>Ремонт компьютеров и ноутбуков</li>
+      <li>Установка Windows</li>
+      <li>Установка и настройка программного обеспечения</li>
+      <li>Настройка локальных сетей и Wi-Fi</li>
+      <li>Настройка интернет-оборудования</li>
+      <li>Подключение и настройка МФУ и принтеров</li>
+      <li>IT-поддержка для офисов</li>
