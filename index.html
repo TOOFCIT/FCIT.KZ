@@ -156,7 +156,7 @@
     }
 
     .assistant img {
-      max-height: 260px; /* ПК */
+      max-height: 260px;
       display: block;
       transition: transform 0.4s ease;
       animation: float 6s ease-in-out infinite;
@@ -188,6 +188,16 @@
       box-shadow: 0 0 20px rgba(139,92,246,0.45);
       border: 1px solid rgba(139,92,246,0.5);
       pointer-events: none;
+
+      /* скрыта по умолчанию */
+      opacity: 0;
+      transform: translateY(6px);
+      transition: 0.4s ease;
+    }
+
+    .assistant-tooltip.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .online {
@@ -213,7 +223,6 @@
       50% { opacity: 0.3; }
     }
 
-    /* Мобильная версия */
     @media (max-width: 768px) {
       body {
         background-attachment: scroll;
@@ -225,12 +234,10 @@
         text-align: center;
       }
 
-      h1 {
-        font-size: 36px;
-      }
+      h1 { font-size: 36px; }
 
       .assistant img {
-        max-height: 190px; /* меньше на телефоне */
+        max-height: 190px;
       }
     }
   </style>
@@ -253,7 +260,6 @@
   <div class="container">
     <h2>Наши услуги</h2>
     <div class="grid">
-
       <div class="card active">
         <h3>Ремонт компьютеров</h3>
         <p>Диагностика и устранение неисправностей</p>
@@ -273,7 +279,6 @@
       <div class="card"><h3>Программы</h3><p>Установка и обновление ПО</p><div class="card-more"></div></div>
       <div class="card"><h3>МФУ и принтеры</h3><p>Подключение и настройка</p><div class="card-more"></div></div>
       <div class="card"><h3>IT-поддержка офисов</h3><p>Выездное и удалённое обслуживание</p><div class="card-more"></div></div>
-
     </div>
   </div>
 
@@ -308,10 +313,21 @@
       'Написать специалисту'
     ];
     let i = 0;
+    const textEl = document.getElementById('assistant-text');
+    const tooltip = document.querySelector('.assistant-tooltip');
+
     setInterval(() => {
       i = (i + 1) % texts.length;
-      document.getElementById('assistant-text').textContent = texts[i];
+      textEl.textContent = texts[i];
     }, 4000);
+
+    function showTooltip() {
+      tooltip.classList.add('show');
+      setTimeout(() => tooltip.classList.remove('show'), 2500);
+    }
+
+    setTimeout(showTooltip, 3000);
+    setInterval(showTooltip, 8000);
   </script>
 
 </body>
