@@ -111,19 +111,8 @@
       transform: translateY(-4px);
     }
 
-    .card:active {
-      transform: scale(0.98);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .card h3 { margin-bottom: 10px; font-size: 18px; }
+    .card p { color: var(--muted); font-size: 14px; }
 
     .card-more {
       max-height: 0;
@@ -152,31 +141,40 @@
       font-size: 14px;
     }
 
-    /* === ПЛАВАЮЩИЙ СПЕЦИАЛИСТ — МИНИМАЛЬНЫЙ ФРЕЙМ === */
+    /* === АССИСТЕНТ === */
     .assistant {
       position: fixed;
       right: 10px;
       bottom: 10px;
       z-index: 999;
-      pointer-events: none; /* убираем пустую зону */
     }
 
     .assistant a {
       display: inline-block;
-      width: fit-content;
       line-height: 0;
-      pointer-events: auto; /* кликается ТОЛЬКО картинка */
       position: relative;
     }
 
     .assistant img {
       max-height: 260px;
       display: block;
+      transition: transform 0.4s ease;
+      animation: float 6s ease-in-out infinite;
       filter:
         drop-shadow(0 0 25px rgba(139,92,246,.5))
         drop-shadow(0 0 60px rgba(34,211,238,.25));
     }
 
+    .assistant a:hover img {
+      transform: scale(1.03) translateY(-4px);
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* Tooltip */
     .assistant-tooltip {
       position: absolute;
       right: 10px;
@@ -190,15 +188,30 @@
       white-space: nowrap;
       box-shadow: 0 0 20px rgba(139,92,246,0.45);
       border: 1px solid rgba(139,92,246,0.5);
-      opacity: 0;
-      transform: translateY(10px);
-      animation: pulseTooltip 6s infinite;
     }
 
-    @keyframes pulseTooltip {
-      0%, 70% { opacity: 0; transform: translateY(10px); }
-      75%, 90% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(10px); }
+    /* Online indicator */
+    .online {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #4ade80;
+      margin-bottom: 6px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #4ade80;
+      animation: blink 1.4s infinite;
+    }
+
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
 
     @media (max-width: 768px) {
@@ -227,67 +240,47 @@
     <h2>Наши услуги</h2>
     <div class="grid">
 
-      <div class="card">
+      <div class="card active">
         <h3>Ремонт компьютеров</h3>
         <p>Диагностика и устранение неисправностей</p>
         <div class="card-more">
           <ul>
             <li>Аппаратная диагностика комплектующих</li>
-            <li>Проверка жёсткого диска и SSD</li>
+            <li>Проверка HDD и SSD</li>
             <li>Тест оперативной памяти</li>
             <li>Диагностика блока питания</li>
-            <li>Выявление перегрева и проблем охлаждения</li>
-            <li>Поиск программных и системных ошибок</li>
+            <li>Поиск программных ошибок</li>
           </ul>
         </div>
       </div>
 
-      <div class="card">
-        <h3>Установка Windows</h3>
-        <p>Чистая установка и настройка</p>
-        <div class="card-more"></div>
-      </div>
-
-      <div class="card">
-        <h3>Wi-Fi и сети</h3>
-        <p>Настройка локальных сетей</p>
-        <div class="card-more"></div>
-      </div>
-
-      <div class="card">
-        <h3>Программы</h3>
-        <p>Установка и обновление ПО</p>
-        <div class="card-more"></div>
-      </div>
-
-      <div class="card">
-        <h3>МФУ и принтеры</h3>
-        <p>Подключение и настройка</p>
-        <div class="card-more"></div>
-      </div>
-
-      <div class="card">
-        <h3>IT-поддержка офисов</h3>
-        <p>Выездное и удалённое обслуживание</p>
-        <div class="card-more"></div>
-      </div>
+      <div class="card"><h3>Установка Windows</h3><p>Чистая установка и настройка</p><div class="card-more"></div></div>
+      <div class="card"><h3>Wi-Fi и сети</h3><p>Настройка локальных сетей</p><div class="card-more"></div></div>
+      <div class="card"><h3>Программы</h3><p>Установка и обновление ПО</p><div class="card-more"></div></div>
+      <div class="card"><h3>МФУ и принтеры</h3><p>Подключение и настройка</p><div class="card-more"></div></div>
+      <div class="card"><h3>IT-поддержка офисов</h3><p>Выездное и удалённое обслуживание</p><div class="card-more"></div></div>
 
     </div>
   </div>
 
-  <!-- ПЛАВАЮЩИЙ СПЕЦИАЛИСТ -->
+  <!-- Ассистент -->
   <div class="assistant">
     <a href="https://wa.me/77778898666">
-      <div class="assistant-tooltip">Получить консультацию</div>
+      <div class="assistant-tooltip">
+        <div class="online"><span class="dot"></span>Online</div>
+        <span id="assistant-text">Получить консультацию</span>
+      </div>
       <img src="person.png" alt="IT специалист FCIT">
     </a>
   </div>
 
   <footer>
-    © FCIT — Fast Care IT · Астана · +7 777 88 98 666
+    © FCIT — Fast Care IT · Астана · +7 777 88 98 666<br>
+    Спасибо за субтитры Алексею Дубровскому!
   </footer>
 
   <script>
+    // Аккордеон карточек
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
         document.querySelectorAll('.card').forEach(c => {
@@ -296,6 +289,19 @@
         card.classList.toggle('active');
       });
     });
+
+    // Смена текста подсказки
+    const texts = [
+      'Получить консультацию',
+      'Оставить заявку',
+      'Узнать цену',
+      'Написать специалисту'
+    ];
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % texts.length;
+      document.getElementById('assistant-text').textContent = texts[i];
+    }, 4000);
   </script>
 
 </body>
