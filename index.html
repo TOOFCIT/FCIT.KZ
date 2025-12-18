@@ -1,173 +1,242 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>FCIT — ремонт компьютеров и IT-услуги в Астане</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ремонт компьютеров, установка Windows, настройка Wi-Fi и IT-поддержка в Астане. Выезд и удалённая помощь.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FCIT — Fast Care IT | IT-услуги в Астане</title>
+  <meta name="description" content="FCIT — ремонт компьютеров и IT-услуги в Астане. Выезд, удалённая поддержка, сети, офисы. Быстро и надёжно.">
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #fff;
-  background: #050914;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-/* HERO с фоном */
-.hero {
-  background:
-    linear-gradient(rgba(5,9,20,0.85), rgba(5,9,20,0.95)),
-    url("https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=1600&q=80");
-  background-size: cover;
-  background-position: center;
-  padding: 100px 20px 120px;
-  text-align: center;
-}
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --card: rgba(255,255,255,0.05);
+      --accent: #22d3ee;
+      --accent2: #8b5cf6;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+    }
 
-.hero h1 {
-  font-size: 42px;
-  color: #00e5ff;
-  margin-bottom: 15px;
-}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #111827, #020617);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-.hero p {
-  font-size: 18px;
-  opacity: 0.95;
-  max-width: 800px;
-  margin: auto;
-}
+    a { color: inherit; text-decoration: none; }
 
-.button {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 16px 32px;
-  background: linear-gradient(135deg, #00e5ff, #00bcd4);
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 12px;
-  font-size: 16px;
-}
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
 
-/* Контент */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 70px 20px;
-}
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+      min-height: 90vh;
+    }
 
-h2 {
-  color: #00e5ff;
-  margin-bottom: 20px;
-}
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid var(--accent2);
+      border-radius: 30px;
+      color: var(--accent2);
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
 
-.description {
-  max-width: 900px;
-  line-height: 1.7;
-  opacity: 0.9;
-}
+    h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
 
-ul {
-  line-height: 1.9;
-}
+    h1 span {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.trust {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
+    .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
 
-.trust div {
-  background: rgba(255,255,255,0.05);
-  padding: 22px;
-  border-radius: 14px;
-}
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-/* Footer */
-footer {
-  margin-top: 80px;
-  padding: 30px 20px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-  font-size: 14px;
-  opacity: 0.7;
-}
+    .btn {
+      padding: 14px 26px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
 
-/* Липкий WhatsApp */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25d366;
-  color: #fff;
-  padding: 16px 24px;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  z-index: 999;
-}
-</style>
+    .btn.primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #020617;
+      box-shadow: 0 0 25px rgba(139,92,246,.5);
+    }
+
+    .btn.secondary {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .hero-img {
+      height: 420px;
+      background: linear-gradient(135deg, rgba(34,211,238,.15), rgba(139,92,246,.15));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* SECTIONS */
+    h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      border-color: var(--accent2);
+      box-shadow: 0 0 25px rgba(34,211,238,.2);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* FORM */
+    .form {
+      max-width: 500px;
+      margin: 40px auto 0;
+      display: grid;
+      gap: 15px;
+    }
+
+    input {
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* WHATSAPP BUTTON */
+    .wa {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: linear-gradient(135deg, #25d366, #16a34a);
+      color: #020617;
+      padding: 14px 18px;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 0 20px rgba(37,211,102,.6);
+      z-index: 999;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      h1 { font-size: 38px; }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="hero">
-  <h1>Ремонт компьютеров и IT-услуги</h1>
-  <p>
-    Астана · Быстро · Надёжно · С гарантией<br>
-    Выездное и удалённое обслуживание
-  </p>
-  <a class="button" href="https://wa.me/77778898666">Написать в WhatsApp</a>
-</div>
+  <div class="container hero">
+    <div>
+      <div class="badge">FCIT — Fast Care IT</div>
+      <h1>IT-услуги и ремонт компьютеров<br><span>в Астане</span></h1>
+      <p class="subtitle">
+        Быстрое решение IT-проблем. Выезд и удалённая поддержка.<br>
+        Для дома и офиса.
+      </p>
+      <div class="buttons">
+        <a class="btn primary" href="tel:+77778898666">Позвонить</a>
+        <a class="btn secondary" href="https://wa.me/77778898666">WhatsApp</a>
+      </div>
+    </div>
 
-<div class="container">
-
-  <h2>Чем я занимаюсь</h2>
-  <p class="description">
-    Помогаю частным клиентам и бизнесу решать любые проблемы с компьютерами,
-    ноутбуками и офисной техникой.  
-    Если компьютер тормозит, не включается, не работает интернет или нужно
-    быстро установить Windows и программы — вы по адресу.
-  </p>
-
-  <h2>Услуги</h2>
-  <ul>
-    <li>Ремонт компьютеров и ноутбуков</li>
-    <li>Установка и переустановка Windows</li>
-    <li>Настройка и установка программ</li>
-    <li>Настройка локальных сетей и Wi-Fi</li>
-    <li>Настройка интернет-оборудования</li>
-    <li>Подключение и настройка МФУ и принтеров</li>
-    <li>IT-поддержка для офисов</li>
-    <li>Выездное и удалённое обслуживание</li>
-  </ul>
-
-  <h2>Почему мне можно доверять</h2>
-  <div class="trust">
-    <div>🔧 Реальный опыт в IT</div>
-    <div>💬 Объясняю простым языком</div>
-    <div>🛡 Даю гарантию на работы</div>
-    <div>⚡ Быстро реагирую на заявки</div>
-    <div>🏙 Работаю по Астане</div>
-    <div>💻 Возможна удалённая помощь</div>
+    <div class="hero-img">
+      <!-- сюда позже можно вставить фото человека -->
+      IT Specialist
+    </div>
   </div>
 
-  <h2>Контакты</h2>
-  <p>
-    📍 Астана<br>
-    📞 +7 777 889 8666<br>
-    💬 WhatsApp / Telegram
-  </p>
+  <div class="container">
+    <h2>Наши услуги</h2>
+    <div class="grid">
+      <div class="card"><h3>Ремонт компьютеров</h3><p>Диагностика и устранение неисправностей</p></div>
+      <div class="card"><h3>Установка Windows</h3><p>Чистая установка и настройка</p></div>
+      <div class="card"><h3>Программы</h3><p>Установка и обновление ПО</p></div>
+      <div class="card"><h3>Wi-Fi и сети</h3><p>Настройка локальных сетей</p></div>
+      <div class="card"><h3>МФУ и принтеры</h3><p>Подключение и настройка</p></div>
+      <div class="card"><h3>IT-поддержка офисов</h3><p>Выездное и удалённое обслуживание</p></div>
+    </div>
+  </div>
 
-</div>
+  <div class="container">
+    <h2>Оставить заявку</h2>
+    <form class="form" onsubmit="event.preventDefault(); window.location='https://wa.me/77778898666';">
+      <input type="text" placeholder="Ваше имя" required>
+      <input type="tel" placeholder="Телефон" required>
+      <button class="btn primary">Получить консультацию</button>
+    </form>
+  </div>
 
-<footer>
-  © FCIT, Астана
-</footer>
+  <footer>
+    © FCIT — Fast Care IT · Астана · +7 777 88 98 666
+  </footer>
 
-<a class="whatsapp" href="https://wa.me/77778898666">💬 WhatsApp</a>
+  <a class="wa" href="https://wa.me/77778898666">WhatsApp</a>
 
 </body>
 </html>
