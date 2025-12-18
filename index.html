@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FCIT — Fast Care IT | IT-услуги в Астане</title>
-  <meta name="description" content="FCIT — ремонт компьютеров и IT-услуги в Астане. Выезд и удалённая поддержка. Быстро. Надёжно. С гарантией.">
+  <meta name="description" content="FCIT — ремонт компьютеров и IT-услуги в Астане. Выезд и удалённая поддержка. Быстро. Надёжно.">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -22,8 +22,10 @@
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text);
+
+      /* === АДАПТИВНЫЙ ФОН === */
       background:
-        linear-gradient(rgba(2,6,23,0.88), rgba(2,6,23,0.96)),
+        linear-gradient(rgba(2,6,23,0.85), rgba(2,6,23,0.95)),
         radial-gradient(circle at top right, rgba(139,92,246,0.30), transparent 60%),
         radial-gradient(circle at bottom left, rgba(34,211,238,0.25), transparent 60%),
         url("bg-tech.jpg") center / cover no-repeat fixed;
@@ -100,6 +102,7 @@
 
     .btn:hover { transform: translateY(-2px); }
 
+    /* === ЧЕЛОВЕК / КАРТИНКА === */
     .hero-img {
       display: flex;
       justify-content: center;
@@ -107,8 +110,9 @@
     }
 
     .hero-img img {
+      max-width: 100%;
       max-height: 460px;
-      width: auto;
+      height: auto;
       filter:
         drop-shadow(0 0 30px rgba(139,92,246,.5))
         drop-shadow(0 0 70px rgba(34,211,238,.25));
@@ -188,10 +192,26 @@
       z-index: 999;
     }
 
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      h1 { font-size: 38px; }
-      .hero-img img { max-height: 360px; }
+    /* === МОБИЛЬНАЯ АДАПТАЦИЯ === */
+    @media (max-width: 768px) {
+      body {
+        background-attachment: scroll;
+        background-position: center top;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .hero-img img {
+        max-height: 300px;
+        margin-top: 20px;
+      }
     }
   </style>
 </head>
@@ -212,6 +232,7 @@
       </div>
     </div>
 
+    <!-- === ЧЕЛОВЕК === -->
     <div class="hero-img">
       <img src="person.png" alt="IT специалист FCIT">
     </div>
@@ -222,20 +243,11 @@
     <div class="grid">
       <div class="card"><h3>Ремонт компьютеров</h3><p>Диагностика и устранение неисправностей</p></div>
       <div class="card"><h3>Установка Windows</h3><p>Чистая установка и настройка</p></div>
-      <div class="card"><h3>Программы</h3><p>Установка и обновление ПО</p></div>
       <div class="card"><h3>Wi-Fi и сети</h3><p>Настройка локальных сетей</p></div>
+      <div class="card"><h3>Программы</h3><p>Установка и обновление ПО</p></div>
       <div class="card"><h3>МФУ и принтеры</h3><p>Подключение и настройка</p></div>
       <div class="card"><h3>IT-поддержка офисов</h3><p>Выездное и удалённое обслуживание</p></div>
     </div>
-  </div>
-
-  <div class="container">
-    <h2>Оставить заявку</h2>
-    <form class="form" onsubmit="event.preventDefault(); window.location='https://wa.me/77778898666';">
-      <input type="text" placeholder="Ваше имя" required>
-      <input type="tel" placeholder="Телефон" required>
-      <button class="btn primary">Получить консультацию</button>
-    </form>
   </div>
 
   <footer>
