@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FCIT — Fast Care IT | IT-услуги в Астане</title>
-  <meta name="description" content="FCIT — ремонт компьютеров и IT-услуги в Астане. Выезд, удалённая поддержка, сети, офисы. Быстро и надёжно.">
+  <meta name="description" content="FCIT — ремонт компьютеров и IT-услуги в Астане. Выезд и удалённая поддержка. Быстро. Надёжно. С гарантией.">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0b0f1a;
-      --card: rgba(255,255,255,0.05);
       --accent: #22d3ee;
       --accent2: #8b5cf6;
       --text: #e5e7eb;
       --muted: #9ca3af;
+      --card: rgba(255,255,255,0.06);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #111827, #020617);
       color: var(--text);
-      line-height: 1.6;
+      background:
+        linear-gradient(rgba(2,6,23,0.88), rgba(2,6,23,0.96)),
+        radial-gradient(circle at top right, rgba(139,92,246,0.30), transparent 60%),
+        radial-gradient(circle at bottom left, rgba(34,211,238,0.25), transparent 60%),
+        url("bg-tech.jpg") center / cover no-repeat fixed;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -31,7 +34,7 @@
     .container {
       max-width: 1100px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 70px 20px;
     }
 
     /* HERO */
@@ -46,8 +49,8 @@
     .badge {
       display: inline-block;
       padding: 6px 14px;
-      border: 1px solid var(--accent2);
       border-radius: 30px;
+      border: 1px solid var(--accent2);
       color: var(--accent2);
       margin-bottom: 20px;
       font-size: 14px;
@@ -55,7 +58,7 @@
 
     h1 {
       font-size: 48px;
-      line-height: 1.2;
+      line-height: 1.15;
       margin-bottom: 15px;
     }
 
@@ -81,13 +84,13 @@
       padding: 14px 26px;
       border-radius: 40px;
       font-weight: 600;
-      transition: 0.3s;
+      transition: .3s;
     }
 
     .btn.primary {
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       color: #020617;
-      box-shadow: 0 0 25px rgba(139,92,246,.5);
+      box-shadow: 0 0 30px rgba(139,92,246,.6);
     }
 
     .btn.secondary {
@@ -98,21 +101,24 @@
     .btn:hover { transform: translateY(-2px); }
 
     .hero-img {
-      height: 420px;
-      background: linear-gradient(135deg, rgba(34,211,238,.15), rgba(139,92,246,.15));
-      border-radius: 20px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.1);
+      align-items: center;
+    }
+
+    .hero-img img {
+      max-height: 460px;
+      width: auto;
+      filter:
+        drop-shadow(0 0 30px rgba(139,92,246,.5))
+        drop-shadow(0 0 70px rgba(34,211,238,.25));
     }
 
     /* SECTIONS */
     h2 {
-      font-size: 36px;
-      margin-bottom: 30px;
       text-align: center;
+      font-size: 36px;
+      margin-bottom: 35px;
     }
 
     .grid {
@@ -123,15 +129,15 @@
 
     .card {
       background: var(--card);
-      border-radius: 18px;
       padding: 25px;
+      border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.3s;
+      transition: .3s;
     }
 
     .card:hover {
       border-color: var(--accent2);
-      box-shadow: 0 0 25px rgba(34,211,238,.2);
+      box-shadow: 0 0 25px rgba(34,211,238,.25);
     }
 
     .card h3 {
@@ -156,9 +162,9 @@
       padding: 14px 18px;
       border-radius: 12px;
       border: none;
-      outline: none;
       background: rgba(255,255,255,0.08);
       color: var(--text);
+      outline: none;
     }
 
     footer {
@@ -168,7 +174,7 @@
       font-size: 14px;
     }
 
-    /* WHATSAPP BUTTON */
+    /* WhatsApp */
     .wa {
       position: fixed;
       right: 20px;
@@ -185,6 +191,7 @@
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
       h1 { font-size: 38px; }
+      .hero-img img { max-height: 360px; }
     }
   </style>
 </head>
@@ -196,8 +203,8 @@
       <div class="badge">FCIT — Fast Care IT</div>
       <h1>IT-услуги и ремонт компьютеров<br><span>в Астане</span></h1>
       <p class="subtitle">
-        Быстрое решение IT-проблем. Выезд и удалённая поддержка.<br>
-        Для дома и офиса.
+        Быстрое решение IT-проблем.<br>
+        Выезд и удалённая поддержка для дома и офиса.
       </p>
       <div class="buttons">
         <a class="btn primary" href="tel:+77778898666">Позвонить</a>
@@ -206,8 +213,7 @@
     </div>
 
     <div class="hero-img">
-      <!-- сюда позже можно вставить фото человека -->
-      IT Specialist
+      <img src="person.png" alt="IT специалист FCIT">
     </div>
   </div>
 
